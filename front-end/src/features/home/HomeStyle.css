@@ -1,0 +1,91 @@
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tři sloupce */
+    gap: 20px;
+    max-width: 100%; /* Ensure grid does not overflow horizontally */
+    padding: 0 10px; /* Add padding to prevent edge overflow */
+}
+
+.quiz-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.quiz-card img {
+    max-width: 650px; /* Obrázek bude vyplňovat šířku karty */
+    height: 200px; /* Nastavíme pevnou výšku, aby byly všechny obrázky stejné */
+    object-fit: cover; /* Ořízne obrázek tak, aby vyplnil celý rám */
+    border-radius: 4px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-options {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.loading-indicator span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.loading-indicator::after {
+    content: '';
+    border: 4px solid transparent;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .quiz-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+}
