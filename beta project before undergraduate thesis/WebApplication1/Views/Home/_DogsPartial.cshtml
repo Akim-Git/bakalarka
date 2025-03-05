@@ -1,0 +1,21 @@
+﻿@model List<WebApplication1.Models.Dog>
+
+<h3>Search Results</h3>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var dog in Model)
+        {
+            <li>
+                <img src="data:image;base64,@Convert.ToBase64String(dog.ImageData)" alt="Dog Image" style="max-width: 100px; max-height: 100px;" />
+                <span>@dog.Name - @dog.Breed - @dog.Age - @dog.Sex</span>
+                <!-- Ostatní informace o psovi -->
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No dogs found.</p>
+}

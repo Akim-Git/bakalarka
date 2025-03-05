@@ -1,0 +1,80 @@
+﻿@model WebApplication1.Models.Shelter
+
+<div>
+    <h2>@Model.Name</h2>
+    <p>@Model.Description</p>
+    <p>Adresa: @Model.Address.Street, @Model.Address.City, @Model.Address.ZipCode</p>
+
+    <h3>Dogs in Shelter</h3>
+    <ul>
+
+        @foreach (var dog in ViewData["Dogs"] as List<WebApplication1.Models.Dog>)
+        {
+            <li>
+                <!-- Zobrazení informací o psu -->
+                <img src="data:image;base64,@Convert.ToBase64String(dog.ImageData)" alt="Dog Image" style="max-width: 100px; max-height: 100px;" />
+                <span>@dog.Name - @dog.Breed - @dog.Age - @dog.Sex</span>
+                <a class="btn btn-primary" asp-controller="Dogs" asp-action="Edit" asp-route-id="@dog.Id">Edit</a>
+
+                <!-- Formulář pro přidání komentáře -->
+                <form method="post" asp-controller="Shelter" asp-action="AddComment">
+                    <input type="hidden" name="dogId" value="@dog.Id" />
+                    <input type="text" name="commentContent" placeholder="Add a comment..." />
+                    <button type="submit">Comment</button>
+                </form>
+
+
+              <!---  adoptace -->
+                <form method="post" asp-controller="Shelter" asp-action="Adopt">
+                    <input type="hidden" name="dogId" value="@dog.Id" />
+                    <button type="submit" class="btn btn-danger">Adoptovat</button>
+                </form>
+
+                <!-- Zobrazení komentářů pod tímto psem -->
+                <ul>
+                   
+                    <h4>Comments:</h4>
+                    <ul>
+                        @foreach (var comment in (ViewBag.ShelterContext as ShelterContext).Comments.Where(c => c.DogId == dog.Id))
+                        {
+                            <li>@comment.Content - @comment.CreatedAt</li>
+                        }
+                    </ul>
+                   
+
+                </ul>
+            </li>
+        }
+
+
+
+
+    <h3>Add New Dog</h3>
+    <form method="post" asp-action="AddDog" enctype="multipart/form-data">
+        <div>
+            <label>Name:</label>
+            <input type="text" name="Name" />
+        </div>
+        <div>
+            <label>Age:</label>
+            <input type="number" name="Age" />
+        </div>
+        <div>
+            <label>Sex:</label>
+            <input type="text" name="Sex" />
+        </div>
+        <div>
+            <label>Breed:</label>
+            <input type="text" name="Breed" />
+        </div>
+        <div>
+            <label>Image:</label>
+            <input type="file" name="ImageData" />
+        </div>
+
+        <!-- umožňuje předávat data z akce (controlleru) do pohledu (view) -->
+        <input type="hidden" name="ShelterId" value="@ViewBag.ShelterId" />
+
+        <button type="submit">Add Dog</button>
+    </form>
+</div>

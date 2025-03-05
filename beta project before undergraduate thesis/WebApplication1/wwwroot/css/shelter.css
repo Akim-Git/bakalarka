@@ -1,0 +1,41 @@
+﻿:root {
+    --background-color: #f0f0f0; /* Šedá barva pozadí */
+    --border-color: #ccc; /* Šedá barva ohraničení */
+    --header-background-color: #007bff; /* Modrá barva pozadí záhlaví */
+    --header-text-color: #fff; /* Bílá barva textu záhlaví */
+    --body-background-color: #ffffff; /* Bílá barva pozadí těla */
+    --body-text-color: #333; /* Černá barva textu v těle */
+}
+
+html {
+    font-size: 14px;
+}
+
+.my-custom-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /*/border-radius: 15px; /* Zaoblení horních rohů s poloměrem 10px */
+}
+
+.my-custom-header {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    /*/border-radius: 15px; /* Zaoblení horních rohů s poloměrem 30px */
+    height: 40px;
+}
+
+
+.my-custom-body {
+    background-color: var(--body-background-color);
+    color: var(--body-text-color);
+    padding: 0.5rem 1rem;
+}
+
+.margin-all {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+

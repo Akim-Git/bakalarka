@@ -1,0 +1,13 @@
+﻿@model WebApplication1.Models.Dog
+
+<h2>Edit Dog Photo</h2>
+
+<form asp-action="EditPhoto" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="ImageData"></label>
+        <img src="data:image;base64,@Convert.ToBase64String(Model.ImageData)" alt="Dog Image" />
+        <input type="file" name="newImageData" class="form-control-file" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Upload New Photo</button>
+</form>

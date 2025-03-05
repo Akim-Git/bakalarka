@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.Shelter
+
+<h2>Add Shelter</h2>
+
+<form asp-controller="Home" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Address:</label>
+        <div>
+            <label asp-for="Address.Street"></label>
+            <input asp-for="Address.Street" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="Address.City"></label>
+            <input asp-for="Address.City" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="Address.ZipCode"></label>
+            <input asp-for="Address.ZipCode" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

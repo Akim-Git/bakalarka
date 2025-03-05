@@ -1,0 +1,16 @@
+﻿@model WebApplication1.Models.Shelter
+
+<div class="card my-custom-card">
+    <div class="card-header my-custom-header">
+        @Model.Name
+    </div>
+    <div class="card-body my-custom-body">
+        <p>@Model.Description</p>
+        <p>Adresa: @Model.Address.Street, @Model.Address.City, @Model.Address.ZipCode</p>
+
+        
+        @Html.ActionLink("Detaily", "Details", "Shelter", new { id = Model.Id }, null)
+
+
+    </div>
+</div>
