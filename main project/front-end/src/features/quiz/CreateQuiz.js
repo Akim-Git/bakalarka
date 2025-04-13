@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
 import { Navigate, useNavigate } from 'react-router-dom';
+import './CreateQuiz.css';
 
 const CreateQuiz = () => {
     const { isAuthenticated, user } = useAuth();
@@ -192,20 +193,24 @@ const CreateQuiz = () => {
     return (
         <form onSubmit={handleSubmit}>
             {errorMessages && <div className="error-messages">{errorMessages.general}</div>}
+    
             <div>
                 <label>Title:</label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
             </div>
+    
             <div>
                 <label>Description:</label>
                 <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
             </div>
+    
             <div>
                 <label>Quiz Image (png, jpg, jpeg):</label>
                 <input type="file" accept="image/*" onChange={handleQuizImageChange} />
             </div>
+    
             {questions.map((question, questionIndex) => (
-                <div key={questionIndex}>
+                <div className="question-block" key={questionIndex}>
                     <label>Question {questionIndex + 1}:</label>
                     <input
                         type="text"
@@ -213,7 +218,7 @@ const CreateQuiz = () => {
                         onChange={(e) => handleQuestionChange(questionIndex, e.target.value)}
                         required
                     />
-                    <button type="button" onClick={() => handleDeleteQuestion(questionIndex)}>Delete Question</button>
+    
                     <div>
                         <label>Question Type:</label>
                         <select
@@ -227,8 +232,9 @@ const CreateQuiz = () => {
                             <option value="contains">Odhadnout slovo</option>
                         </select>
                     </div>
+    
                     <div>
-                        <label>Time for answer</label>
+                        <label>Time for answer (seconds):</label>
                         <select
                             value={question.TimeForAnswer}
                             onChange={(e) => handleTimeForAnswerChange(questionIndex, e.target.value)}
@@ -240,33 +246,45 @@ const CreateQuiz = () => {
                             <option value="60">60</option>
                         </select>
                     </div>
+    
                     <div>
                         <label>Question Image (optional):</label>
                         <input type="file" accept="image/*" onChange={(e) => handleImageChange(questionIndex, e)} />
                     </div>
-                    {question.answers.map((answer, answerIndex) => (
-                        <div key={answerIndex}>
-                            <input
-                                type="text"
-                                value={answer.text}
-                                onChange={(e) => handleAnswerChange(questionIndex, answerIndex, e.target.value)}
-                                placeholder={`Answer ${answerIndex + 1}`}
-                            />
-                            <input
-                                type="checkbox"
-                                checked={answer.isCorrect}
-                                onChange={() => handleCorrectChange(questionIndex, answerIndex)}
-                            />
-                            <button type="button" onClick={() => handleDeleteAnswer(questionIndex, answerIndex)}>Delete Answer</button>
-                        </div>
-                    ))}
-                    <button type="button" onClick={() => handleAddAnswer(questionIndex)}>Add Answer</button>
+    
+                    <div>
+                        <label>Answers:</label>
+                        {question.answers.map((answer, answerIndex) => (
+                            <div className="answer-block" key={answerIndex}>
+                                <input
+                                    type="text"
+                                    value={answer.text}
+                                    onChange={(e) => handleAnswerChange(questionIndex, answerIndex, e.target.value)}
+                                    placeholder={`Answer ${answerIndex + 1}`}
+                                />
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={answer.isCorrect}
+                                        onChange={() => handleCorrectChange(questionIndex, answerIndex)}
+                                    />
+                                    Correct
+                                </label>
+                                <button type="button" onClick={() => handleDeleteAnswer(questionIndex, answerIndex)}>Delete</button>
+                            </div>
+                        ))}
+                        <button type="button" onClick={() => handleAddAnswer(questionIndex)}>Add Answer</button>
+                    </div>
+    
+                    <button type="button" onClick={() => handleDeleteQuestion(questionIndex)}>Delete Question</button>
                 </div>
             ))}
+    
             <button type="button" onClick={handleAddQuestion}>Add Question</button>
             <button type="submit">Submit Quiz</button>
         </form>
     );
+    
 };
 
 export default CreateQuiz;

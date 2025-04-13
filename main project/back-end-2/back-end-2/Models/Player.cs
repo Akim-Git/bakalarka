@@ -17,7 +17,13 @@ namespace back_end_2.Models
 
         public int LobbyId { get; set; }
 
+        public string ConnectionId { get; set; }
+
+        //public bool IsUserBlocked { get; set; } = false;
+
         [ForeignKey("LobbyId")]
         public Lobby Lobby { get; set; }
+
+        public bool DidAnswer { get; set; } = false;
     }
 }

@@ -82,7 +82,7 @@ namespace back_end_2.Helpers
             //vytvoření tokenu
             var token = new JwtSecurityToken(
                 claims: claims,                       //seznam klaimu
-                expires: DateTime.Now.AddMinutes(30), // expirace tokenu
+                expires: DateTime.Now.AddMinutes(90), // expirace tokenu
                 signingCredentials: creds);           // podpis a algoritmus
 
             // vygenerování tokenu a převod na řetězec

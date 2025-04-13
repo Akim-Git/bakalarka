@@ -11,6 +11,9 @@ import QuizBuilder from './features/quizBuilder/QuizBuilder';
 import LobbyMenu from './features/lobby/LobbyMenu';
 import QuizBuilderMulti from './features/quizBuilder/QuizBuilderMulti';
 
+
+
+
 const App = () => {
     return (
         <AuthProvider> 
@@ -19,7 +22,9 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/resetpassword" element={<ResetPassword />} /> {/* Přidejte tuto řádku */}
+                    <Route path="/resetpassword" element={<ResetPassword />} /> 
+                    
+
                     <Route
                         path="/create-quiz"
                         element={

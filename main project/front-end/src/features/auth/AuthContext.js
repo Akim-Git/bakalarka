@@ -9,12 +9,12 @@ export const AuthProvider = ({ children }) => {
     
 
     useEffect(() => {
-    // Check user authentication on page load
+    
     axios.get('https://localhost:7006/api/auth/validate', { withCredentials: true })
         .then(response => {
             if (response.data.isAuthenticated) {
                 console.log("User is authenticated:", response.data.user);
-                setUser(response.data.user);  // Set user from backend response
+                setUser(response.data.user);  
                 setIsAuthenticated(true);
             } else {
                 console.log("AAAAAAAAAAAAAA")
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
         })
         .catch(error => {
             console.log("Error validating user:", error.response ? error.response.data : error.message);
-            console.log("BBBBBBBBBBBBBB")
+            
             logout(); // Log out on error
         });
 }, []);

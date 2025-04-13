@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using back_end_2.Classes;
 using Microsoft.AspNetCore.SignalR;
+using SQLitePCL;
+using Microsoft.Extensions.Options;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -89,7 +92,7 @@ builder.Services.AddSwaggerGen();
 // Database context configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer("Server=LAPTOP-55CDANGP\\SQLEXPRESS;Database=Bakalar;Trusted_Connection=True;TrustServerCertificate=True;");
+    options.UseSqlServer("Server=LAPTOP-55CDANGP\\SQLEXPRESS;Database=Bakalar3;Trusted_Connection=True;TrustServerCertificate=True;");
 });
 
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -102,6 +105,10 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>()
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSignalR();
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<EmailService>();
+
 
 var app = builder.Build();
 
@@ -137,18 +144,7 @@ app.MapControllers();
 // Initialize roles and admin user
 //using (var scope = app.Services.CreateScope())
 //{
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-//    if (!await roleManager.RoleExistsAsync("Admin"))
-//    {
-//        await roleManager.CreateAsync(new IdentityRole("Admin"));
-//    }
-
-//    if (!await roleManager.RoleExistsAsync("User"))
-//    {
-//        await roleManager.CreateAsync(new IdentityRole("User"));
-//    }
+    
 
 //    var adminUser = await userManager.FindByEmailAsync("akimadminpr0jekt2@gmail.com");
 //    if (adminUser == null)
@@ -163,6 +159,7 @@ app.MapControllers();
 //        await userManager.AddToRoleAsync(newAdmin, "Admin");
 //    }
 //}
+
 
 app.MapHub<QuizHub>("quiz-hub");
 

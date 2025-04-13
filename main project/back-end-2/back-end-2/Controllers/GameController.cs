@@ -9,6 +9,8 @@ using back_end_2.Classes;
 using Microsoft.AspNetCore.SignalR;
 using back_end_2.Helpers;
 using NuGet.Common;
+using Humanizer;
+using System.Numerics;
 
 namespace back_end_2.Controllers
 {
@@ -54,15 +56,60 @@ namespace back_end_2.Controllers
             return Ok(questions);
         }
 
-
-
-
-
         // multiplayer
         [Authorize]
-        [HttpGet("moderator-starts-game/{lobbyId}")]
-        public async Task<IActionResult> ModeratorStartsGame(string lobbyId)
+        [HttpPost("moderator-starts-game/{lobbyId}")]
+        public async Task<IActionResult> ModeratorStartsGame(string lobbyId, [FromBody] StartGameDTO gameDTO)
         {
+
+            bool hasTeam = false;
+
+            
+
+            //if (gameDTO.Teams != null && gameDTO.Teams.Any())
+            //{
+            //    await _quizHub.Clients.Group(lobbyId).SendAsync("ChangeButtons", "");
+            //}
+
+            // {teams: {User: "soul", AkimAdmin: "aloloa"}}
+
+            var groupedTeams = gameDTO.Teams
+            
+                .GroupBy(pair => pair.Value)
+                .ToDictionary(g => g.Key, // použij název týmu jako klíč
+                g => g.Select(pair => pair.Key)  // z každého pairu (username, teamName) vezme jen username
+                .ToList());
+
+            foreach (var team in groupedTeams)
+            {
+
+                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
+                var newTeam = new Team
+                {
+                    LobbyId = lobbyId,
+                    TeamName = team.Key,
+                    TeamScore = 0
+                };
+
+                _context.Teams.Add(newTeam);
+                await _context.SaveChangesAsync(); 
+
+                foreach (var username in team.Value)
+                {
+                    var member = new TeamMember
+                    {
+                        UserName = username,
+                        TeamId = newTeam.Id
+                    };
+
+                    _context.TeamMembers.Add(member);
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+
+
 
             if (!HttpContext.Request.Cookies.TryGetValue("jwt", out var token))
             {
@@ -80,10 +127,44 @@ namespace back_end_2.Controllers
             if (int.TryParse(lobbyId, out int lobbyIdInt))
             {
 
+                if (gameDTO.Teams != null && gameDTO.Teams.Any())
+                {
+                    hasTeam = true;
+
+                    var allPlayers = await _context.Players
+                        .Where(p => p.LobbyId == lobbyIdInt)
+                        .Select(p => p.UserName)
+                        .ToListAsync();
+
+                    var assignedPlayers = gameDTO.Teams.Keys;
+
+                    var playersWithoutTeam = allPlayers.Except(assignedPlayers).ToList();
+
+                    if (playersWithoutTeam.Any())
+                    {
+                        await _quizHub.Clients.Group(lobbyId).SendAsync("ReceiveMessage", $"Moderator vytvořil týmy. Všichni hráči musí být v týmech. Hráči bez týmu: {string.Join(", ", playersWithoutTeam)}");
+
+                        return BadRequest($"Hráči bez týmu: {string.Join(", ", playersWithoutTeam)}");
+                    }
+                }
+
+
                 var lobby = await _context.Lobbies.FindAsync(lobbyIdInt);
+
+
+                //var Players = await _context.Players.Where(p => p.LobbyId == lobbyIdInt).ToListAsync();
+
+                //foreach (var gamers in Players)
+                //{
+                //    gamers.Score = 0;
+                //}
+
+                await _context.SaveChangesAsync();
 
                 if (lobby != null)
                 {
+
+                    
                     int quizId = lobby.QuizId;
 
                     var questionMulti = await _context.Questions
@@ -118,43 +199,80 @@ namespace back_end_2.Controllers
 
                     while (currentQuestionIndex < amountOfQuestions)
                     {
+
+                        //lobby.AcceptingAnswers = false;
+                        //await _context.SaveChangesAsync();
+
+
+                        //var players = await _context.Players.Where(p => p.LobbyId == lobbyIdInt).ToListAsync();
+
+                        //foreach (var player in players)
+                        //{
+
+                        //    Console.WriteLine($"Před: {player.UserName}, DidAnswer: {player.DidAnswer}");
+                        //    player.DidAnswer = false;
+                        //    Console.WriteLine($"Po: {player.UserName}, DidAnswer: {player.DidAnswer}");
+                        //}
+
+                        //await _context.SaveChangesAsync();
+
+                        int QuestionId = 0;
+
+                        await _context.Players
+                            .Where(p => p.LobbyId == lobbyIdInt)
+                            .ExecuteUpdateAsync(setters => setters
+                            .SetProperty(p => p.DidAnswer, false));
+
+
                         var currentQuestion = questionMulti[currentQuestionIndex];
+
+                        QuestionId = currentQuestion.Id;
 
                         string message = $"The moderator has started the game! Quiz ID: {quizId}";
 
+                        await _quizHub.Clients.Group(lobbyId).SendAsync("CheckAnswer", "");
+
                         await _quizHub.Clients.Group(lobbyId).SendAsync("ReceiveMessage", currentQuestion);
+
+                        //lobby.AcceptingAnswers = true;
+                        //await _context.SaveChangesAsync();
 
                         int timeForAnswerInSeconds = int.Parse(currentQuestion.TimeForAnswer);
 
                         // Čekání na čas definovaný v `TimeForAnswer`
                         await Task.Delay(timeForAnswerInSeconds * 1000); // Čekání v milisekundách
 
+                        if (hasTeam)
+                        {
+                            await TeamAnswerPoints(lobbyIdInt, QuestionId);
+                            //Console.WriteLine("************************************************************************************");
+                        }
+
+
                         // Přechod na další otázku
                         currentQuestionIndex++;
                     }
 
-
-
-                    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    //var playerstodelete = await _context.players
-                    //    .where(p => p.lobbyid == lobbyidint)
-                    //    .tolistasync();
-
-                    //_context.players.removerange(playerstodelete); 
-                    //await _context.savechangesasync();
-
-
-
-
-
                     //await _quizHub.Clients.Group(lobbyId).SendAsync("GameFinished", "All questions have been asked.");
 
-                    var results = await Results(lobbyIdInt);
+                    var results = await Results(lobbyIdInt, hasTeam);
+
+
+                    //Console.WriteLine("************************************************************************************");
 
                     Console.WriteLine("Odesílám výsledky:", results);
 
                     await _quizHub.Clients.Group(lobbyId).SendAsync("ReceiveResults", results);
 
+                    var teams = await _context.Teams.Where(t => t.LobbyId == lobbyId).ToListAsync();
+
+                    var players = await _context.Players.Where(p => p.LobbyId == lobbyIdInt).ToListAsync();
+
+                    _context.Players.RemoveRange(players);
+
+                    _context.Teams.RemoveRange(teams);
+
+                    await _context.SaveChangesAsync();
 
                     return Ok("Game finished");
                 }
@@ -169,22 +287,78 @@ namespace back_end_2.Controllers
             }
         }
 
-
-        private async Task<List<PlayersResultDTO>> Results(int lobbyid)
+        private async Task TeamAnswerPoints(int lobbyId, int questionId)
         {
-            var players = await _context.Players
-                .Where(p => p.LobbyId == lobbyid)
-                .OrderByDescending(p => p.Score)
-                .Select(p => new PlayersResultDTO
-                {
-                    Username = p.UserName,
-                    Score = p.Score
-                })
+            var teamAnswer = await _context.TeamAnswers
+                .Where(t => t.QuestionId == questionId && t.Team.LobbyId == lobbyId.ToString())
+                .Include(t => t.Team)
                 .ToListAsync();
 
+            var correctAnswer = await _context.Answers
+                .Where(a => a.QuestionId == questionId && a.IsCorrect)
+                .Select(a => a.Text)
+                .FirstOrDefaultAsync();
 
+            var groupedByTeam = teamAnswer
+                .GroupBy(a => a.TeamId)
+                .ToList();
 
-            return players;
+            foreach (var group in groupedByTeam)
+            {
+                var team = group.First().Team;
+                var answers = group;
+
+                var mostCommonAnswer = answers
+                    .GroupBy(a => a.Answer)
+                    .Select(g => new { Answer = g.Key, Count = g.Count() })
+                    .OrderByDescending(g => g.Count)
+                    .First();
+
+                Console.WriteLine($"Tým {team.TeamName} zvolil nejčastěji: {mostCommonAnswer.Answer} ({mostCommonAnswer.Count}x)");
+
+                if (mostCommonAnswer.Answer == correctAnswer)
+                {
+                    team.TeamScore++;
+                    Console.WriteLine($" Správně! Tým {team.TeamName} získává bod.");
+                }
+                else
+                {
+                    Console.WriteLine($" Špatně. Tým {team.TeamName} nezískal bod.");
+                }
+            }
+
+           
+            await _context.SaveChangesAsync();
+        }
+
+        private async Task<List<ResultDTO>> Results(int lobbyId , bool hasTeam)
+        {
+            if (hasTeam)
+            {
+                var teamResults = await _context.Teams.Where(t => t.LobbyId == lobbyId.ToString()).Select(t => new ResultDTO
+                {
+                    Name = t.TeamName,
+                    Score = t.TeamScore,
+                    IsTeam = true
+                })
+                .OrderByDescending(r => r.Score)
+                .ToListAsync();
+
+                return teamResults;
+            }
+            else
+            {
+                var playerResults = await _context.Players.Where(p => p.LobbyId == lobbyId).Select(p => new ResultDTO
+                {
+                    Name = p.UserName,
+                    Score = p.Score,
+                    IsTeam = false
+                })
+                .OrderByDescending(r => r.Score)
+                .ToListAsync();
+
+                return playerResults;
+            }
 
         }
 
@@ -195,39 +369,155 @@ namespace back_end_2.Controllers
         public async Task<IActionResult> CheckAnswer(int lobbyId, [FromBody] AnswerRequestDTO request)
         {
             //await _context.Players.ExecuteDeleteAsync();
-            
+
+
 
             if (!HttpContext.Request.Cookies.TryGetValue("jwt", out var token))
             {
                 return Unauthorized();
             }
 
-            var username = Helper.GetUsernameFromToken(token); 
+            var username = Helper.GetUsernameFromToken(token);
             // zatím nevím , jestli musím kontrolovat , jestli player je v lobby 
 
             //var isPlayerInLobby = await _context
+
+            var teamMember = await _context.TeamMembers.FirstOrDefaultAsync(p => p.UserName == username);
+
+            if (teamMember != null)
+            {
+                int teamId = teamMember.TeamId;
+                await TeamAnswer(lobbyId, username, request.UserInput, request.QuestionId, teamId);
+
+                Console.WriteLine("ttttttttttttttttttttttttttttttttttttttttttttttttttttttttt");
+
+                return Ok("hráč v týmu odpovědel");
+            }
+
+            Console.WriteLine("llllllllllllllllllllllllllllllllllllllllllllllllllll");
+
 
             var correctAnswer = await _context.Answers
                 .Where(a => a.QuestionId == request.QuestionId && a.IsCorrect == true)
                 .FirstOrDefaultAsync();
 
-            var playerScore = await _context.Players
-                    .Where(p => p.UserName == username && lobbyId == p.LobbyId)
-                    .FirstOrDefaultAsync();
+            //var player = await _context.Players
+            //        .Where(p => p.UserName == username && lobbyId == p.LobbyId)
+            //        .FirstOrDefaultAsync();
+
+            var player = await _context.Players.Where(p => p.UserName == username && lobbyId == p.LobbyId).FirstOrDefaultAsync();
+
+
+            //var player = await _context.Players.FirstOrDefaultAsync(p => p.UserName == username);
+
+            //var lobby = await _context.Lobbies.FirstOrDefaultAsync(l => l.Id == player.LobbyId);
+            //if (lobby == null || lobby.AcceptingAnswers == false)
+            //{
+            //    return BadRequest("Ještě nelze odpovídat.");
+            //}
+
+
+
+            if (player.DidAnswer == true)
+            {
+                Console.WriteLine("už odpovídal");
+
+                await _quizHub.Clients.Client(player.ConnectionId).SendAsync("CheckAnswer", "Nejde měnit odpověď");
+
+                return Ok("nejde měnit odpověď");
+            }
 
             if (request.UserInput == correctAnswer.Text)
             {
                 
-                playerScore.Score++;
+                player.Score++;
+
+                player.DidAnswer = true;
 
                 await _context.SaveChangesAsync();
 
-                return Ok($"Správné ! Máte score : {playerScore.Score}");
+                if(teamMember == null)
+                {
+                    Console.WriteLine("//////////////////////////////////////////////////////////////////////////////////////");
+
+                    //Console.WriteLine(isInTeam);
+
+                    await _quizHub.Clients.Client(player.ConnectionId).SendAsync("CheckAnswer", $"Správné ! Máte score : {player.Score}");
+
+
+                }                
+
+                return Ok($"Správné ! Máte score : {player.Score}");
 
             }
-            
 
-            return Ok($"Odpověď nebyla správná. Máte score : {playerScore.Score}");
+            player.DidAnswer = true;
+
+            await _context.SaveChangesAsync();
+
+            await _quizHub.Clients.Client(player.ConnectionId).SendAsync("CheckAnswer", $"Odpověď nebyla správná. Máte score : {player.Score}");
+
+            return Ok($"Odpověď nebyla správná. Máte score : {player.Score}");
+
+        }
+
+        private async Task TeamAnswer(int lobbyId, string username, string useranswer, int questionId, int teamId)
+        {
+            Console.WriteLine($"Data . jeho loddyId :{lobbyId},jeho username : {username}, jeho odpověď : {useranswer}, jeho questionId : {questionId}, jeho teamID {teamId}");
+
+
+
+            var answered = await _context.TeamAnswers.FirstOrDefaultAsync(t => t.QuestionId == questionId && t.Username == username && t.TeamId == teamId);
+
+            // najde všechny hráče z tohoto týmu ve stejné lobby
+            var teamPlayersInLobby = await (
+                from p in _context.Players
+                join tm in _context.TeamMembers on p.UserName equals tm.UserName
+                where p.LobbyId == lobbyId && tm.TeamId == teamId
+                select p.ConnectionId
+            ).ToListAsync();
+
+            if (answered == null)
+            {
+                Console.WriteLine("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+
+                var newAnswer = new TeamAnswer
+                {
+                    TeamId = teamId,
+                    QuestionId = questionId,
+                    Username = username,
+                    Answer = useranswer
+
+                };
+
+                _context.TeamAnswers.Add(newAnswer);
+
+                await _context.SaveChangesAsync();
+
+
+                await _quizHub.Clients.Clients(teamPlayersInLobby).SendAsync("TeamMemberAnswer", new
+                {
+                    UserName = username,
+                    Answer = useranswer
+                });
+
+
+            }
+            else
+            {
+                answered.Answer = useranswer;
+                await _context.SaveChangesAsync();
+
+                
+
+
+                await _quizHub.Clients.Clients(teamPlayersInLobby).SendAsync("TeamMemberAnswer", new
+                {
+                    UserName = username,
+                    Answer = useranswer
+                });
+            }
+
 
         }
 

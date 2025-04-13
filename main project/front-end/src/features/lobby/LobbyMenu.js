@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Přidáno useNavigate
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LobbyMenuStyle.css';
 
 const LobbyMenu = () => {
     const [lobbies, setLobbies] = useState([]);
-    const navigate = useNavigate(); // Inicializace navigate
+    const navigate = useNavigate();
 
     const fetchLobbies = async () => {
         try {
@@ -18,23 +18,21 @@ const LobbyMenu = () => {
         }
     };
 
-    // Vyvolá funkci během načítání
     useEffect(() => {
         fetchLobbies();
     }, []);
 
-    const handleNavigateToLobby = (id) => {
-        navigate(`/quiz-builder-multiplayer/${id}`);
-        console.log(`lobby id "${id}"`);
+    const handleNavigateToLobby = (id, hasPassword, name) => {
+        navigate(`/quiz-builder-multiplayer/${id}`, { state: { hasPassword , lobbyName: name } });
+        console.log(`Navigace do quiz-builder-multiplayer s ID "${id}" a hasPassword: ${hasPassword}, lobbyName: ${name}`);
     };
 
     return (
         <div className="lobby-grid">
-            {lobbies.map((lobby, index) => (
-                <div key={index} className="lobby-item">
-                    <p><strong>Lobby Name:</strong> {lobby.name}</p>
-                    <span style={{ display: "none" }}>{lobby.id}</span>
-                    <button onClick={() => handleNavigateToLobby(lobby.id)}>Join</button>
+            {lobbies.map((lobby) => (
+                <div key={lobby.id} className="lobby-item">
+                    <p><strong>Lobby Name:</strong> {lobby.name} {lobby.hasPassword && "🔒"}</p>
+                    <button onClick={() => handleNavigateToLobby(lobby.id, lobby.hasPassword, lobby.name)}>Join</button>
                 </div>
             ))}
         </div>

@@ -49,3 +49,9 @@
 button:focus {
     outline: none;
 }
+
+.lock-icon {
+    color: red;
+    font-size: 18px;
+    margin-left: 8px;
+}

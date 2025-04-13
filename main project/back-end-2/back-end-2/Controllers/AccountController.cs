@@ -13,6 +13,8 @@ using System;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using back_end_2.Helpers;
+using Microsoft.Extensions.Options;
+
 
 [Route("api/[controller]")]
 [ApiController]
@@ -23,15 +25,21 @@ public class AuthController : ControllerBase
     private readonly IConfiguration _configuration;
     private readonly EmailService _emailService;
     private readonly ApplicationDbContext _context;
-
-    public AuthController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IConfiguration configuration, ApplicationDbContext context)
+    public AuthController(
+        UserManager<IdentityUser> userManager,
+        SignInManager<IdentityUser> signInManager,
+        IConfiguration configuration,
+        ApplicationDbContext context,
+        EmailService emailService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _configuration = configuration;
-        _emailService = new EmailService(); // Vytvoření instance EmailService
-        _context = context; // Initialize _context
+        _context = context;
+        _emailService = emailService;
     }
+
+    
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -225,21 +233,17 @@ public class AuthController : ControllerBase
             return BadRequest("Uživatel s tímto e-mailem neexistuje.");
         }
 
-        
         var result = await _userManager.ResetPasswordAsync(user, model.ResetCode, model.NewPassword);
 
-        var roles = await _userManager.GetRolesAsync(user);
         if (result.Succeeded)
         {
-            // Vytvoření tokenu pomocí uživatelského jména
-            var token = Helper.CreateToken(user.UserName, roles, _configuration["AppSettings:Token"]);
+            var token = Helper.CreateToken(user.UserName, new List<string>(), _configuration["AppSettings:Token"]);
 
-            // Uložení JWT tokenu do cookie
             HttpContext.Response.Cookies.Append("jwt", token, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true, // Pouze přes HTTPS
-                SameSite = SameSiteMode.None, // Zamezení CSRF útokům
+                Secure = true,
+                SameSite = SameSiteMode.None,
                 Expires = DateTimeOffset.UtcNow.AddMinutes(30)
             });
 
@@ -248,11 +252,5 @@ public class AuthController : ControllerBase
 
         return BadRequest(result.Errors);
     }
-
-
-
-    
-
-
 
 }

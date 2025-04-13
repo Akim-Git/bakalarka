@@ -74,7 +74,6 @@ const Home = () => {
                 name: lobbyName,
                 quizId: quizToLobby,
                 lobbyOwner: "",
-                isActive: true,
                 lobbyPassword: lobbyPassword  
             };
 
