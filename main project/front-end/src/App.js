@@ -25,7 +25,7 @@ const App = () => {
                     <Route path="/resetpassword" element={<ResetPassword />} /> 
                     
 
-                    <Route
+                    <Routesss
                         path="/create-quiz"
                         element={
                             <ProtectedRoute>

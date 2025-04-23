@@ -64,7 +64,14 @@ namespace back_end_2.Classes
 
             var lobby = await _context.Lobbies.FirstOrDefaultAsync(l => l.Id == lobbyIdInt);
 
-           // string moderConnection = lobby.ModerConnectionId;
+            if (lobby == null)
+            {
+                // lobby nebyla nalezena
+                await Clients.Caller.SendAsync("ReceiveMessage", "Lobby nebyla nalezena.");
+                return false;
+
+            }
+            // string moderConnection = lobby.ModerConnectionId;
 
             var username = Helper.GetUsernameFromToken(token);
 
@@ -144,6 +151,7 @@ namespace back_end_2.Classes
                                 Score = 0,
                                 LobbyId = lobbyIdInt,
                                 ConnectionId = Context.ConnectionId,
+                                Answer = " "
                             };
 
                             _context.Players.Add(updatedPlayerPass);
@@ -227,6 +235,7 @@ namespace back_end_2.Classes
                     Score = 0,
                     LobbyId = lobbyIdInt,
                     ConnectionId = Context.ConnectionId,
+                    Answer = " "
                 };
 
                 _context.Players.Add(newPlayer);

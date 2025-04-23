@@ -151,6 +151,8 @@ namespace back_end_2.Controllers
 
                 var lobby = await _context.Lobbies.FindAsync(lobbyIdInt);
 
+                lobby.IsActive = true;
+
 
                 //var Players = await _context.Players.Where(p => p.LobbyId == lobbyIdInt).ToListAsync();
 
@@ -248,6 +250,12 @@ namespace back_end_2.Controllers
                             //Console.WriteLine("************************************************************************************");
                         }
 
+                       var usersAnswers = await UsersAnswers(QuestionId, hasTeam, lobbyIdInt);
+
+                        await _quizHub.Clients.Group(lobbyId).SendAsync("ShowUserAnswers", usersAnswers);
+
+                        await Task.Delay(10 * 1000); // Čekání v milisekundách
+
 
                         // Přechod na další otázku
                         currentQuestionIndex++;
@@ -271,6 +279,8 @@ namespace back_end_2.Controllers
                     _context.Players.RemoveRange(players);
 
                     _context.Teams.RemoveRange(teams);
+
+                    lobby.IsActive = false;
 
                     await _context.SaveChangesAsync();
 
@@ -319,13 +329,33 @@ namespace back_end_2.Controllers
                 if (mostCommonAnswer.Answer == correctAnswer)
                 {
                     team.TeamScore++;
+                    //team.TeamAnswers.Answer = mostCommonAnswer.Answer;
                     Console.WriteLine($" Správně! Tým {team.TeamName} získává bod.");
                 }
                 else
                 {
                     Console.WriteLine($" Špatně. Tým {team.TeamName} nezískal bod.");
                 }
+
+                var teamCommonAnswer = new TeamCommonAnswer
+                {
+                    TeamId = team.Id,
+                    TeamName = team.TeamName,
+                    LobbyId = lobbyId,
+                    QuestionId = questionId,
+                    Answer = mostCommonAnswer.Answer
+                };
+
+                await _context.TeamCommonAnswers.AddAsync(teamCommonAnswer);
+
+                
+                _context.TeamAnswers.RemoveRange(answers);
+
+                //var answersToDelete = answers.Where(a => a.Answer != mostCommonAnswer.Answer).ToList();
+
+                //_context.TeamAnswers.RemoveRange(answersToDelete);
             }
+                
 
            
             await _context.SaveChangesAsync();
@@ -358,6 +388,33 @@ namespace back_end_2.Controllers
                 .ToListAsync();
 
                 return playerResults;
+            }
+
+        }
+
+        private async Task<List<UsersAnswersDTO>> UsersAnswers(int questionId, bool hasTeam, int lobbyId)
+        {
+            if (hasTeam)
+            {
+                var teamsAnswers = await _context.TeamCommonAnswers.Where(t => t.LobbyId == lobbyId && t.QuestionId == questionId).Select(t => new UsersAnswersDTO
+                {
+                    Name = t.TeamName,
+                    Answer = t.Answer
+                })
+                .ToListAsync();
+
+                return teamsAnswers;
+            }
+            else
+            {
+                var usersAnswers = await _context.Players.Where(p => p.LobbyId == lobbyId && p.QuestionId == questionId).Select(p => new UsersAnswersDTO
+                {
+                    Name = p.UserName,
+                    Answer = p.Answer
+                })
+                .ToListAsync();
+
+                return usersAnswers;
             }
 
         }
@@ -434,6 +491,12 @@ namespace back_end_2.Controllers
 
                 player.DidAnswer = true;
 
+                player.QuestionId = request.QuestionId;
+
+                player.Answer = request.UserInput;
+
+                player.IsAnswerCorrect = true;
+
                 await _context.SaveChangesAsync();
 
                 if(teamMember == null)
@@ -452,6 +515,10 @@ namespace back_end_2.Controllers
             }
 
             player.DidAnswer = true;
+
+            player.QuestionId = request.QuestionId;
+
+            player.Answer = request.UserInput;
 
             await _context.SaveChangesAsync();
 

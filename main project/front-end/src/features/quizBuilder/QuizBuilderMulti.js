@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
 import defaultImage from '../quizBuilder/sign.jpg';
 import AnswerCard from './AnswerCard';
-import axios from 'axios';
+import axios, { all } from 'axios';
 import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const QuizBuilderMulti = () => {
     const { id } = useParams(); 
@@ -50,6 +51,12 @@ const QuizBuilderMulti = () => {
     const [showResults, setShowResults] = useState(false);
 
     const [results, setResults] = useState([])
+
+    const [usersAnswers, setUsersAnswers] = useState(false); // ukáže všem , kdo jak odpovědel na aktualní otázku , než se příjde další
+
+    const [allUsersAnswers, setAllUsersAnswers] = useState([])
+
+     const navigate = useNavigate();
 
 
 
@@ -101,6 +108,10 @@ const QuizBuilderMulti = () => {
         // Handling incoming messages and setting state accordingly
         newConnection.on("ReceiveMessage", (data) => {
             console.log("Received data:", data);
+
+            setUsersAnswers(false);
+            setTeamMemberAnswer([]);
+
 
             if (data && typeof data === "string") {
                 setReceivedData(data); 
@@ -242,6 +253,8 @@ const QuizBuilderMulti = () => {
         }
     })
 
+    
+
     useEffect(() => {
         if (connection) {
             connection.on("TeamMemberAnswer", (data) => {
@@ -263,8 +276,16 @@ const QuizBuilderMulti = () => {
         };
     }, [connection]);
 
-    
-    
+    useEffect(() => {
+        if (connection) {
+            connection.on("ShowUserAnswers", (data) => {
+                setAllUsersAnswers([])
+                setUsersAnswers(true);
+                console.log("MEZIVÝSLEDKY od backendu:", data);
+                setAllUsersAnswers(data)
+            });
+        }
+    }, [connection]);     
 
 
     // Kontrola jestli je uživatel moderátor
@@ -440,6 +461,10 @@ const QuizBuilderMulti = () => {
         });
     };
     
+    const handleToLobbyMenu = () => {
+        navigate('/lobby-menu');
+    };
+
     
 
     return (
@@ -456,11 +481,29 @@ const QuizBuilderMulti = () => {
                             ))}
                         </ul>
                     ) : (
-                        <p>Načítání výsledků...</p>
+                        <p>Nikdo neodpověděl</p>
                     )}
-                    <button onClick={() => window.location.reload()}>Zpět do lobby</button>
+                    {/* <button onClick={() => window.location.reload()}>Zpět do lobby</button> */}
+                    <button onClick={handleToLobbyMenu}>Zpět do lobby</button>
                 </div>
-            ) : (
+            ) : usersAnswers ? (
+                <div>
+                    {allUsersAnswers.length > 0 ? (
+                        <ul>
+                            {allUsersAnswers.map((player, index) => (
+                                <li key={index}>
+                                    {player.name}: {player.answer}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>Načítání výsledků...</p>
+                    )}                    
+                </div>
+                
+            ) :
+            
+            (
                 <div>
                     <h1>Lobby Name: {lobbyName}</h1>
 

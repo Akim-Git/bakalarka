@@ -55,3 +55,13 @@ button:focus {
     font-size: 18px;
     margin-left: 8px;
 }
+
+.search-input {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}

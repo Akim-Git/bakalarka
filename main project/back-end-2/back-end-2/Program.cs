@@ -87,6 +87,9 @@ builder.Services.AddAuthorization(options =>
 
 // Add Swagger for API documentation
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddHostedService<LobbyClean>();
+
 builder.Services.AddSwaggerGen();
 
 // Database context configuration
@@ -107,7 +110,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
 builder.Services.AddScoped<EmailService>();
+
 
 
 var app = builder.Build();

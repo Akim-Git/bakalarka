@@ -16,6 +16,7 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<Team> Teams { get; set; }
     public DbSet<TeamMember> TeamMembers { get; set; }
     public DbSet<TeamAnswer> TeamAnswers { get; set; }
+    public DbSet<TeamCommonAnswer> TeamCommonAnswers { get; set; }
     //public DbSet<TeamAnswerVote> TeamAnswersVotes { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 

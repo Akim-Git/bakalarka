@@ -25,5 +25,10 @@ namespace back_end_2.Models
         public Lobby Lobby { get; set; }
 
         public bool DidAnswer { get; set; } = false;
+        public int QuestionId { get; set; }
+
+        public string Answer { get; set; }
+
+        public bool IsAnswerCorrect { get; set; } = false;
     }
 }

@@ -27,5 +27,8 @@ namespace back_end_2.Models
         public string ModerConnectionId { get; set; } = "";
 
         public bool AcceptingAnswers { get; set; } = false;
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
     }
 }

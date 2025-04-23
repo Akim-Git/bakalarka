@@ -3,56 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\controllers\\lobbycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\controllers\\lobbycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\teamanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\teamanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\teamanswervote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\teamanswervote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\classes\\quizhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\classes\\quizhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\startgamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\startgamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\classes\\lobbyclean.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\classes\\lobbyclean.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\resultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\resultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\playersresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\playersresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\teammember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\teammember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\teamanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\teamanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\answerrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\answerrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\usersanswersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\usersanswersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\classes\\roleseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\classes\\roleseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\models\\teamcommonanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\models\\teamcommonanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|c:\\users\\akim\\desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\migrations\\20250422171816_hope-12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF9338-7426-4BBB-82FF-2E994D7A3CD0}|back-end-2\\back-end-2.csproj|solutionrelative:back-end-2\\migrations\\20250422171816_hope-12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,123 +57,115 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 326,
-          "SelectedChildIndex": 7,
+          "DockedHeight": 384,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlayersResultDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\PlayersResultDTO.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\PlayersResultDTO.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\PlayersResultDTO.cs",
-              "RelativeToolTip": "back-end-2\\Models\\PlayersResultDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T16:29:46.107Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ResultDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\ResultDTO.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\ResultDTO.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\ResultDTO.cs",
-              "RelativeToolTip": "back-end-2\\Models\\ResultDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAIAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T16:27:39.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Player.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\Player.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Player.cs",
-              "RelativeToolTip": "back-end-2\\Models\\Player.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAQwBwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T15:45:10.59Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StartGameDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\StartGameDTO.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\StartGameDTO.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\StartGameDTO.cs",
-              "RelativeToolTip": "back-end-2\\Models\\StartGameDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T14:38:48.683Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TeamAnswerVote.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamAnswerVote.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\TeamAnswerVote.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamAnswerVote.cs",
-              "RelativeToolTip": "back-end-2\\Models\\TeamAnswerVote.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T21:50:28.431Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "QuizHub.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\QuizHub.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Classes\\QuizHub.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\QuizHub.cs",
-              "RelativeToolTip": "back-end-2\\Classes\\QuizHub.cs",
-              "ViewState": "AQIAAF4BAAAAAAAAAAAIwHUBAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T12:37:32.261Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RoleSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\RoleSeeder.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Classes\\RoleSeeder.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\RoleSeeder.cs",
-              "RelativeToolTip": "back-end-2\\Classes\\RoleSeeder.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAAAF4AAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T19:28:47.179Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GameController.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Controllers\\GameController.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Controllers\\GameController.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Controllers\\GameController.cs",
-              "RelativeToolTip": "back-end-2\\Controllers\\GameController.cs",
-              "ViewState": "AQIAAAIBAAAAAAAAAAAuwBYBAAAUAAAA",
+              "Title": "LobbyController.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Controllers\\LobbyController.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Controllers\\LobbyController.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Controllers\\LobbyController.cs",
+              "RelativeToolTip": "back-end-2\\Controllers\\LobbyController.cs",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAAALUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T12:42:19.726Z",
+              "WhenOpened": "2025-04-23T16:47:02.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Program.cs",
               "RelativeDocumentMoniker": "back-end-2\\Program.cs",
               "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Program.cs",
               "RelativeToolTip": "back-end-2\\Program.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAqwHcAAAAAAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAwFoAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T19:12:14.482Z"
+              "WhenOpened": "2025-04-22T17:17:04.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LobbyClean.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\LobbyClean.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Classes\\LobbyClean.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\LobbyClean.cs",
+              "RelativeToolTip": "back-end-2\\Classes\\LobbyClean.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T17:10:42.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lobby.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Lobby.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Models\\Lobby.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Lobby.cs",
+              "RelativeToolTip": "back-end-2\\Models\\Lobby.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T16:59:39.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuizHub.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\QuizHub.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Classes\\QuizHub.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Classes\\QuizHub.cs",
+              "RelativeToolTip": "back-end-2\\Classes\\QuizHub.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAgwLoAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T15:47:59.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsersAnswersDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\UsersAnswersDTO.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Models\\UsersAnswersDTO.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\UsersAnswersDTO.cs",
+              "RelativeToolTip": "back-end-2\\Models\\UsersAnswersDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T11:32:46.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "back-end-2\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAowBEAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T09:55:43.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Controllers\\GameController.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Controllers\\GameController.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Controllers\\GameController.cs",
+              "RelativeToolTip": "back-end-2\\Controllers\\GameController.cs",
+              "ViewState": "AQIAAAcBAAAAAAAAAADwvxoBAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T12:42:19.726Z",
+              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedHeight": 74,
-          "SelectedChildIndex": -1,
+          "DockedHeight": 16,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -194,98 +182,91 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20250422171816_hope-12.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Migrations\\20250422171816_hope-12.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Migrations\\20250422171816_hope-12.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Migrations\\20250422171816_hope-12.cs",
+              "RelativeToolTip": "back-end-2\\Migrations\\20250422171816_hope-12.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAA1wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T17:18:16.585Z",
+              "EditorCaption": ""
             }
           ]
         }
       ]
     },
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "c126bcac-4b70-4e10-b102-cca54dac5fec",
-        "Display": 0,
-        "X": 949,
+        "Id": "c615331d-583a-47e5-9f04-9ab0a66c26c1",
+        "Display": 1,
+        "X": -3,
         "Y": 0,
-        "Width": 592,
-        "Height": 413,
+        "Width": 778,
+        "Height": 821,
         "WindowState": 0
       },
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedHeight": 563,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AnswerRequestDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\AnswerRequestDTO.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\AnswerRequestDTO.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\AnswerRequestDTO.cs",
-              "RelativeToolTip": "back-end-2\\Models\\AnswerRequestDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Player.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Models\\Player.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Player.cs",
+              "RelativeToolTip": "back-end-2\\Models\\Player.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAiwBsAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T21:17:50.611Z"
-            },
+              "WhenOpened": "2025-04-10T15:45:10.59Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 37,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "TeamAnswer.cs",
               "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamAnswer.cs",
               "RelativeDocumentMoniker": "back-end-2\\Models\\TeamAnswer.cs",
               "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamAnswer.cs",
               "RelativeToolTip": "back-end-2\\Models\\TeamAnswer.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAUwAcAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T21:22:49.764Z",
+              "WhenOpened": "2025-04-21T09:58:34.982Z",
               "EditorCaption": ""
             }
           ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "34226081-1317-4dc1-b347-60b8b74c7fc0",
-        "Display": 0,
-        "X": 214,
-        "Y": 162,
-        "Width": 1310,
-        "Height": 506,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
+        },
         {
-          "DockedWidth": 200,
+          "DockedHeight": 200,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Team.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Team.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\Team.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\Team.cs",
-              "RelativeToolTip": "back-end-2\\Models\\Team.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAA+wBAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T12:07:04.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "TeamMember.cs",
-              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamMember.cs",
-              "RelativeDocumentMoniker": "back-end-2\\Models\\TeamMember.cs",
-              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamMember.cs",
-              "RelativeToolTip": "back-end-2\\Models\\TeamMember.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Title": "TeamCommonAnswer.cs",
+              "DocumentMoniker": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamCommonAnswer.cs",
+              "RelativeDocumentMoniker": "back-end-2\\Models\\TeamCommonAnswer.cs",
+              "ToolTip": "C:\\Users\\Akim\\Desktop\\normal\\bakal\u00E1\u0159ka\\project\\main project\\back-end-2\\back-end-2\\Models\\TeamCommonAnswer.cs",
+              "RelativeToolTip": "back-end-2\\Models\\TeamCommonAnswer.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAuwA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T19:25:00.794Z"
+              "WhenOpened": "2025-04-21T09:53:39.597Z",
+              "EditorCaption": ""
             }
           ]
         }

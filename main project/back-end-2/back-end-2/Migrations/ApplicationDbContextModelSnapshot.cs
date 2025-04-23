@@ -340,6 +340,9 @@ namespace back_end_2.Migrations
                     b.Property<bool>("AcceptingAnswers")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -375,6 +378,10 @@ namespace back_end_2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConnectionId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -382,7 +389,13 @@ namespace back_end_2.Migrations
                     b.Property<bool>("DidAnswer")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsAnswerCorrect")
+                        .HasColumnType("bit");
+
                     b.Property<int>("LobbyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
@@ -458,6 +471,38 @@ namespace back_end_2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("back_end_2.Models.TeamCommonAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LobbyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TeamName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamCommonAnswers");
                 });
 
             modelBuilder.Entity("back_end_2.Models.TeamMember", b =>
@@ -571,6 +616,17 @@ namespace back_end_2.Migrations
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("back_end_2.Models.TeamCommonAnswer", b =>
+                {
+                    b.HasOne("back_end_2.Models.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Team");
                 });
 
             modelBuilder.Entity("back_end_2.Models.TeamMember", b =>

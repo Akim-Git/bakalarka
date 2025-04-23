@@ -497,6 +497,17 @@ public class LobbyController : Controller
         
     }
 
+    [HttpGet("does-lobby-exists")]
+    public async Task<IActionResult> DoesLobbyExist([FromQuery] int lobbyId)
+    {
+        var exists = await _context.Lobbies.AnyAsync(l => l.Id == lobbyId);
+        if (!exists)
+            return NotFound(); 
+
+        return Ok(); 
+    }
+
+
     private async Task<bool> IsUserModeratorAsync(string username, int lobbyId)
     {
         var lobby = await _context.Lobbies.FirstOrDefaultAsync(l => l.Id == lobbyId);
