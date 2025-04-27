@@ -35,6 +35,7 @@ const Home = () => {
 
             const { quizzes: newQuizzes, isAdmin } = await response.json();
             setIsAdmin(isAdmin);
+            console.log("Je to admin ?:", isAdmin);
 
             if (append) {
                 setQuizzes((prevQuizzes) => [...prevQuizzes, ...newQuizzes]);
@@ -132,6 +133,10 @@ const Home = () => {
         navigate('/lobby-menu')
     }
 
+    const handleOpenProfile = () => {
+        navigate('/profile')
+    }
+
     const getImageType = (base64String) => {
         if (base64String.startsWith('/9j/')) return 'jpeg';
         if (base64String.startsWith('iVBORw0KGgo')) return 'png';
@@ -178,6 +183,7 @@ const Home = () => {
             <button onClick={handleCreateQuiz}>Create Quiz</button>
             <button onClick={handleLogout}>Logout</button>
             <button onClick={handleOpenModal}>Try Multiplayer</button>
+            <button onClick={handleOpenProfile}>Open Profile</button>
 
             <div className="quiz-grid">
                 {quizzes.map((quiz) => {

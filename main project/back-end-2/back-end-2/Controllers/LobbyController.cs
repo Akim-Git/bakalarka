@@ -165,28 +165,54 @@ public class LobbyController : Controller
             return NotFound("Lobby not found.");
         }
 
+        //if (lobby.LobbyOwner == username && !isModerator)
+        //{
+        //    var roleName = new List<string> { "Moderator" };            
+
+        //    var newToken = Helper.CreateToken(username, roleName, _configuration["AppSettings:Token"]);
+
+        //    HttpContext.Response.Cookies.Append("jwt", newToken, new CookieOptions
+        //    {
+        //        HttpOnly = true,
+        //        Secure = true, // Pouze přes HTTPS
+        //        SameSite = SameSiteMode.None, // Zamezení CSRF útokům
+        //        Expires = DateTimeOffset.UtcNow.AddMinutes(30)
+        //    });
+
+        //    lobby.IsActive = true;
+
+        //    await _context.SaveChangesAsync(); 
+
+        //    return Ok(new { sendModerator = true});
+
+
+        //}
+
         if (lobby.LobbyOwner == username && !isModerator)
         {
-            var roleName = new List<string> { "Moderator" };            
+            
+            var roles = Helper.GetRolesFromToken(token).ToList();
 
-            var newToken = Helper.CreateToken(username, roleName, _configuration["AppSettings:Token"]);
+            roles.Add("Moderator");
+            
+
+            //["Admin", "Moderator"]
+            var newToken = Helper.CreateToken(username, roles, _configuration["AppSettings:Token"]);
 
             HttpContext.Response.Cookies.Append("jwt", newToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true, // Pouze přes HTTPS
-                SameSite = SameSiteMode.None, // Zamezení CSRF útokům
+                Secure = true,
+                SameSite = SameSiteMode.None,
                 Expires = DateTimeOffset.UtcNow.AddMinutes(30)
             });
 
             lobby.IsActive = true;
+            await _context.SaveChangesAsync();
 
-            await _context.SaveChangesAsync(); 
-
-            return Ok(new { sendModerator = true});
-
-            
+            return Ok(new { sendModerator = true });
         }
+
 
         //aby vratilo isModerator true i když moderator restartoval stránku , ale v tokenu je moderator
 

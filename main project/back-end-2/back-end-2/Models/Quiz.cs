@@ -10,7 +10,7 @@ public class Quiz
     [Required]
     public string Title { get; set; } // název kvízu (povinný atribut)
 
-    public string Description { get; set; } // popis kvízu
+    public string? Description { get; set; } // popis kvízu
 
     public byte[]? ImageData { get; set; } // data obrázku jako binární pole
 

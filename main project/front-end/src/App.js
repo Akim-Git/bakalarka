@@ -10,6 +10,7 @@ import ResetPassword from './features/auth/ResetPassword';
 import QuizBuilder from './features/quizBuilder/QuizBuilder';
 import LobbyMenu from './features/lobby/LobbyMenu';
 import QuizBuilderMulti from './features/quizBuilder/QuizBuilderMulti';
+import Profile from './features/profile/Profile'
 
 
 
@@ -25,7 +26,7 @@ const App = () => {
                     <Route path="/resetpassword" element={<ResetPassword />} /> 
                     
 
-                    <Routesss
+                    <Route
                         path="/create-quiz"
                         element={
                             <ProtectedRoute>
@@ -63,6 +64,14 @@ const App = () => {
                         element={
                             <ProtectedRoute>
                                 <QuizBuilderMulti />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/profile'
+                        element={
+                            <ProtectedRoute>
+                                <Profile/>
                             </ProtectedRoute>
                         }
                     />
